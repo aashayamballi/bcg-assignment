@@ -1,0 +1,11 @@
+FROM node:14-alpine
+
+WORKDIR /ui
+
+ARG BASE_URL
+ARG API_URL
+
+ENV REACT_APP_BASE_URL=${BASE_URL}
+ENV REACT_APP_API_URL=${API_URL}
+
+CMD npm install && npm start
