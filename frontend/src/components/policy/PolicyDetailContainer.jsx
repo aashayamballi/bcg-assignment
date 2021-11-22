@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Row, Col, Select } from "antd";
 import { useSelector, useDispatch } from "react-redux";
+import { Typography } from "antd";
 
 import PolicyDetailTable from "./PolicyDetailTable";
 import SearchInput from "./SearchInput";
@@ -12,6 +13,7 @@ import { getRegionData } from "../../actions/policy/policy-api";
 import DataSelection from "../general/DataSelection";
 
 const { Option } = Select;
+const { Title } = Typography;
 
 export default function PolicyDetailContainer() {
   const dispatch = useDispatch();
@@ -40,6 +42,7 @@ export default function PolicyDetailContainer() {
     <>
       <Row gutter={[16, 24]}>
         <Col span={24}>
+          <Title level={5}>Policy Details</Title>
           <div className="container">
             <Row gutter={[16, 16]}>
               <Col span={4} offset={20}>
@@ -52,6 +55,7 @@ export default function PolicyDetailContainer() {
           </div>
         </Col>
         <Col span={24}>
+          <Title level={5}>Monthly Policies Bought</Title>
           <div className="container">
             <Row gutter={[16, 16]}>
               <Col span={5} offset={19}>

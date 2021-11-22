@@ -17,6 +17,16 @@ const EditableCell = ({
   children,
   ...restProps
 }) => {
+  console.log(
+    "EDITING CELL",
+    editing,
+    dataIndex,
+    title,
+    inputType,
+    record,
+    index,
+    children
+  );
   const inputNode = <InputNumber min={1} max={1000000} />;
   return (
     <td {...restProps}>
@@ -29,7 +39,9 @@ const EditableCell = ({
           rules={[
             {
               required: true,
-              message: `Please Input ${title}!`,
+              type: "number",
+              min: 1,
+              max: 1000000,
             },
           ]}
         >
@@ -214,6 +226,7 @@ function DetailBoardCiTable() {
       title: "Action",
       fixed: "right",
       width: 80,
+      align: "center",
       dataIndex: "action",
       render: (_, record) => {
         const editable = isEditing(record);
@@ -265,6 +278,7 @@ function DetailBoardCiTable() {
   });
 
   const handleTableChange = (paginate, _, __) => {
+    setEditingKey("");
     dispatch(dispatchPolicyData({ pageNum: paginate.current }));
   };
 

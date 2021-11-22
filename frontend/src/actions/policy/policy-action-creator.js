@@ -33,7 +33,7 @@ export const dispatchPolicyData =
       dispatch({ type: SET_POLICY_DATA, payload: page_data });
     } catch (error) {
       console.error(error);
-      message.error("something went wrong while pulling timeline data");
+      message.error("something went wrong while pulling policy data");
     } finally {
       dispatch({ type: SET_IS_POLICY_LOADING, payload: false });
     }
